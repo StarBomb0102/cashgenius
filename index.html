@@ -1,0 +1,45 @@
+<html lang="'en">
+    <head>
+        <meta charset="UTF-8"/>
+    </head>
+    <style>
+        span > img {
+            max-width: 356px !important;
+            max-height: 57px !important;
+        }
+    </style>
+    <body>
+        <div id="rapidfire-form-wrapper">
+            <script>
+                const urlParams = new URLSearchParams(window.location.search);
+                const entries = urlParams.entries();
+        
+                var affiliate = {
+                    logo: './logo.png',
+                    is_affiliate: true,
+                    aid: '1515',
+                    cid: '5071',
+                    phone_cid: 'default',
+                };
+        
+                for (const entry of entries) {
+                    if (entry[0] == 'aid') {
+                        affiliate.aid = entry[1];
+                    }
+                    if (entry[0] == 'cid') {
+                        affiliate.cid = entry[1];
+                    }
+                    if (entry[0] == 'phone_cid') {
+                        affiliate.phone_cid = entry[1];
+                    } 
+                    if (entry[0] != 'aid' && entry[0] != 'cid' && entry[0] != 'phone_cid') {
+                        affiliate[[entry[0]]] = entry[1];
+                    }
+                }
+                console.log("before");
+                
+            </script>
+            <script src='https://rapidfireform.s3.amazonaws.com/rapidfire.js'></script>
+        </div>
+    </body>
+</html>
